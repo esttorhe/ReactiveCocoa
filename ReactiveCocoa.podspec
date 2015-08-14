@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.authors      = { "Jérémie Girault" => "jeremie.girault@gmail.com" }
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
-  s.source       = { :git => "https://github.com/ReactiveCocoa/ReactiveCocoa.git" }
+  s.source       = { :git => "https://github.com/esttorhe/ReactiveCocoa.git", :tag => "4-beta.0" }
 
   s.subspec "no-arc" do |sp|
     sp.frameworks = 'Foundation'
