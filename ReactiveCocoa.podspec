@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |sp|
     sp.frameworks = 'Foundation'
-    sp.source_files  = "ReactiveCocoa/Objective-C/RACObjCRuntime.{h,m}", "ReactiveCocoa/**/*.{d,h,m,swift}" 
+    sp.source_files  = "ReactiveCocoa/**/*.{d,h,m,swift}" 
     sp.exclude_files = "**/ReactiveCocoa.h", "ReactiveCocoa/**/*{RACObjCRuntime,AppKit,NSControl,NSText,NSTable,UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIImagePicker,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText,MK}*"
     sp.header_dir = "ReactiveCocoa"
     sp.private_header_files = "**/*Private.h", "**/*EXTRuntimeExtensions.h", "**/RACEmpty*.h"
@@ -33,11 +33,12 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "UI" do |sp|
+    sp.frameworks = 'Foundation'
     sp.ios.frameworks = 'UIKit'
     sp.osx.frameworks = 'AppKit'
 
-    sp.ios.source_files = "ReactiveCocoa/**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIImagePicker,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText,MK}*"
-    sp.osx.source_files = "ReactiveCocoa/**/*{AppKit,NSControl,NSText,NSTable}*"
+    sp.ios.source_files = "**/ReactiveCocoa.h, ReactiveCocoa/**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIImagePicker,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText,MK}*"
+    sp.osx.source_files = "**/ReactiveCocoa.h, ReactiveCocoa/**/*{AppKit,NSControl,NSText,NSTable}*"
 
     sp.dependency 'ReactiveCocoa/Core'
   end
